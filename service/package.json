@@ -2,9 +2,9 @@
   "name": "master-foot-service",
   "version": "1.0.0",
   "description": "servidor onde é realizada as transações de eventos futebolisticos",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "nodemon src/server.ts"
   },
   "author": "chegerou <igorafonsonunes@outlook.com>",
   "license": "MIT",
@@ -17,6 +17,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "mysql": "^2.18.1",
     "typeorm": "^0.2.31"
   }
 }

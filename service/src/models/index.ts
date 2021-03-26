@@ -21,7 +21,7 @@ export default class Database {
             entities: [Stadium, Team, Player, Transfer],
             synchronize: true,
             extra: {
-                ssl: {rejectUnauthorized: false}
+                
             },
             
         };
@@ -30,7 +30,6 @@ export default class Database {
                 password: process.env.DB_PASSWORD,
             });
         }
-        
         this.connection = await createConnection(connectionOptions);
     }
 
