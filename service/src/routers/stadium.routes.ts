@@ -1,6 +1,5 @@
 import { Router } from "express";
 import StadiumController from "../controllers/stadium.conroller";
-
 export default class StadiumRoutes {
     private service: StadiumController;
 
