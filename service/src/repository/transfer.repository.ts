@@ -12,7 +12,7 @@ export default class TransferRepository extends Repository<Transfer>{
     public store = async (data: Transfer): Promise<Transfer> => this.repository.save(data);
 
     public listByIdPlayer = async (id_player: number): Promise<Transfer[]> => this.repository
-        .find({ where: { id_player }, relations: ['player', 'Transfer_origin', 'Transfer_destination'] });
+        .find({ where: { id_player }, relations: ['player', 'team_origin', 'team_destination'] });
 
     public list = async (): Promise<Transfer[]> => this.repository.find();
 

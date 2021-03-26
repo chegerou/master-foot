@@ -11,7 +11,7 @@ export default class TeamRoutes {
     public getRoutes = (): Router => {
         const router = Router();
         router.use('/team', router);
-        router.get('/', this.service.list);
+        router.get('/get', this.service.list);
         router.post('/', this.service.store);
         router.put('/', this.service.update);
         router.get('/:id', this.service.show);

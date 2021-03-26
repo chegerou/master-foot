@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import Player from "./player.model";
 import Team from "./team.model";
 
@@ -24,11 +24,11 @@ export default class Transfer {
     @JoinColumn({name: 'id_player'})
     player: Player;
 
-    @OneToOne(() => Team)
-    @JoinColumn(({name:'origin'}))
+    @ManyToOne(() => Team)
+    @JoinColumn(({name:'origin', referencedColumnName: 'id'}))
     team_origin: Team;
 
-    @OneToOne(() => Team)
-    @JoinColumn(({name:'destination'}))
+    @ManyToOne(() => Team)
+    @JoinColumn(({name:'destination', referencedColumnName: 'id'}))
     team_destination: Team;
 }

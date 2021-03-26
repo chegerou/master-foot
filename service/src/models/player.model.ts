@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 import Team from "./team.model";
 
 @Entity('player')
@@ -16,7 +16,7 @@ export default class Player {
     @Column()
     id_team: number;
 
-    @OneToOne(() => Team)
+    @ManyToMany(() => Team)
     @JoinColumn({name:'id_team'})
     team: Team;
 }
