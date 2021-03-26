@@ -1,15 +1,17 @@
 import { Router } from "express";
-import StadiumController from "../controllers/stadium.controller";
-export default class StadiumRoutes {
-    private service: StadiumController;
+import PlayerController from "../controllers/player.controller";
+
+
+export default class PlayerRoutes {
+    private service: PlayerController;
 
     constructor() {
-        this.service = new StadiumController();
+        this.service = new PlayerController();
     }
 
     public getRoutes = (): Router => {
         const router = Router();
-        router.use('/stadium', router);
+        router.use('/player', router);
         router.get('/', this.service.list);
         router.post('/', this.service.store);
         router.put('/', this.service.update);
