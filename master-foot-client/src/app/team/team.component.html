@@ -1,0 +1,57 @@
+<div>
+  <div>
+    <h3>Cadastrar um time</h3>
+    <form [formGroup]='team' (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <span>Nome Completo</span>
+        <input
+        type="text"
+        class="form-control"
+        formControlName="full_name"
+        placeholder="Clube Atlético Mineiro"
+        >
+      </div>
+
+      <div class="form-group">
+        <span>Apelido</span>
+        <input
+        type="text"
+        class="form-control"
+        formControlName="short_name"
+        placeholder="Galo"
+        >
+      </div>
+
+      <div class="form-group">
+        <span>Data da criação:</span>
+        <input
+        type="date"
+        class="form-control"
+        formControlName="founded"
+        placeholder="25-03-1908"
+        >
+      </div>
+
+      <div class="form-group">
+        <span>Identificador do estádio:</span>
+        <input
+        type="number"
+        class="form-control"
+        formControlName="id_stadium"
+        placeholder="1"
+        >
+      </div>
+      <button class="btn btn-success" type="submit">Cadastrar</button>
+    </form>
+
+    <div *ngIf='isNewTeam' class="card" style="width: 18rem; margin-top: 5%;">
+      <div class="card-body">
+        <h5 class="card-title">Estádio Criado</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Nome: {{newTeam?.full_name}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">Apelido: {{newTeam?.short_name}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">Fundado em: {{newTeam?.founded}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">Identificador: {{newTeam?.id}}</h6>
+      </div>
+    </div>
+  </div>
+</div>

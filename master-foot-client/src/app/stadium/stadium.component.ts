@@ -12,6 +12,7 @@ export class StadiumComponent implements OnInit {
 
   stadium: FormGroup;
   newStadium: Stadium | undefined;
+  isNewStadium: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -28,7 +29,10 @@ export class StadiumComponent implements OnInit {
 
   onSubmit(): void {
     this.service.create(new Stadium(this.stadium?.value))
-      .subscribe(stadium =>this.newStadium = stadium);
+      .subscribe(stadium =>{
+        this.newStadium = stadium;
+        this.isNewStadium = true;
+      });
   }
 
 }
