@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StadiumModule } from './stadium/stadium.module';
 import { HttpClientModule } from '@angular/common/http';
 import { TeamModule } from './team/team.module';
+import { PlayerModule } from './player/player.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TeamModule } from './team/team.module';
     HttpClientModule,
 
     StadiumModule,
-    TeamModule
+    TeamModule,
+    PlayerModule
 
   ],
   providers: [],
