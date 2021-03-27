@@ -1,7 +1,6 @@
 <div>
   <div>
     <h3>Cadastrar um estádio</h3>
-
     <form [formGroup]='stadium' (ngSubmit)="onSubmit()">
       <div class="form-group">
         <span>Nome Completo</span>
@@ -35,5 +34,15 @@
 
       <button class="btn btn-success" type="submit">Cadastrar</button>
     </form>
+
+    <div *ngIf='newStadium !== undefined' class="card" style="width: 18rem; margin-top: 5%;">
+      <div class="card-body">
+        <h5 class="card-title">Estádio Criado</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Nome: {{newStadium?.full_name}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">Apelido: {{newStadium?.short_name}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">Capacidade: {{newStadium?.capacity}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">Identificador: {{newStadium?.id}}</h6>
+      </div>
+    </div>
   </div>
 </div>

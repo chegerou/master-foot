@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Stadium } from './stadium.model';
 import { StadiumService } from './stadium.service';
 
+
 @Component({
   selector: 'mf-stadium',
   templateUrl: './statium.component.html',
@@ -10,22 +11,24 @@ import { StadiumService } from './stadium.service';
 export class StadiumComponent implements OnInit {
 
   stadium: FormGroup;
+  newStadium: Stadium | undefined;
 
   constructor(
     private fb: FormBuilder,
     private service: StadiumService) {
-    this.stadium = new FormGroup({
-      full_name: this.fb.control('',[Validators.required]),
-      short_name: this.fb.control('',[Validators.required]),
-      capacity: this.fb.control('',[Validators.required]),
-    });
-   }
+      this.stadium = new FormGroup({
+        full_name: this.fb.control('', [Validators.required]),
+        short_name: this.fb.control('', [Validators.required]),
+        capacity: this.fb.control('', [Validators.required]),
+      });
+  }
 
   ngOnInit() {
   }
 
-  onSubmit():void {
-    this.service.create(new Stadium(this.stadium.value));
+  onSubmit(): void {
+    this.service.create(new Stadium(this.stadium?.value))
+      .subscribe(stadium =>this.newStadium = stadium);
   }
 
 }
