@@ -8,6 +8,8 @@ import { ROUTES } from './app.routes';
 import { HeaderComponent } from './header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StadiumModule } from './stadium/stadium.module';
+import { HttpClientModule } from '@angular/common/http';
+import { TeamModule } from './team/team.module';
 
 @NgModule({
   declarations: [
@@ -16,10 +18,14 @@ import { StadiumModule } from './stadium/stadium.module';
   ],
   imports: [
     BrowserModule,
-    StadiumModule,
     AppRoutingModule,
     RouterModule.forRoot(ROUTES),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+
+    StadiumModule,
+    TeamModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
