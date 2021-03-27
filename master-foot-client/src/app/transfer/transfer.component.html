@@ -1,0 +1,76 @@
+<div>
+  <div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="cadastrarPesquisar" id="cadastrarPesquisar1"
+        (click)="setValue(true)" checked>
+      <label class="form-check-label" for="cadastrarPesquisar1">
+        Cadastrar uma transferência
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="cadastrarPesquisar" id="cadastrarPesquisar2"
+        (click)="setValue(false)">
+      <label class="form-check-label" for="flexRadioDefault2">
+        Pesquisar transferências
+      </label>
+    </div>
+
+    <div *ngIf="changeScreen == true">
+      <h3>Cadastrar uma Transferência</h3>
+      <form [formGroup]='transfer' (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <span>Identificador do time de origem</span>
+          <input type="number" class="form-control" formControlName="origin" placeholder="1">
+        </div>
+
+        <div class="form-group">
+          <span>Identificador do time de destino</span>
+          <input type="number" class="form-control" formControlName="destination" placeholder="2">
+        </div>
+
+        <div class="form-group">
+          <span>Data da transferencia</span>
+          <input type="date" class="form-control" formControlName="moment">
+        </div>
+
+        <div class="form-group">
+          <span>Identificador do jogador que será transferido</span>
+          <input type="number" class="form-control" formControlName="id_player" placeholder="1">
+        </div>
+        <button class="btn btn-success" type="submit">Transferir</button>
+      </form>
+
+      <div *ngIf='isNewTransfer' class="card" style="width: 18rem; margin-top: 5%;">
+        <div class="card-body">
+          <h5 class="card-title">Transferencia Criada</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Identificador do time de origem: {{newTransfer?.origin}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">Identificador do time de destino: {{newTransfer?.destination}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">Data da transferencia: {{newTransfer?.moment}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">Identificador do jogador que será transferido:
+            {{newTransfer?.id_player}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">Identificador: {{newTransfer?.id}}</h6>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="changeScreen == false">
+      <h3>Pesquisar transferências</h3>
+      <form [formGroup]='searchForm'>
+        <div class="form-group">
+          <input type="number" class="form-control" formControlName="searchControl"
+            placeholder="Identificador do jogador">
+        </div>
+        <button type="button" class="btn btn-primary" (click)="searchTransfers(searchControl.value)">Pesquisar</button>
+      </form>
+
+      <div *ngFor='let transferencia of transfers' class="card" style="width: 18rem; margin-top: 5%;">
+        <div class="card-body">
+          <h5 class="card-title">{{transferencia.team_origin?.full_name}} > {{transferencia.team_destination?.full_name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Jogador: {{transferencia.player?.full_name}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">Data da transferencia: {{transferencia.moment}}</h6>
+        </div>
+
+      </div>
+    </div>
+  </div>
