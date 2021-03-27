@@ -14,8 +14,8 @@ export class Transfer {
   constructor(transfer: any) {
     transfer = transfer || {};
     this.id = transfer.id || null;
-    this.origin = transfer.full_name || null;
-    this.destination = transfer.short_name || null;
+    this.origin = transfer.origin || null;
+    this.destination = transfer.destination || null;
     this.moment = transfer.moment || null;
     this.id_player = transfer.id_player || null;
     this.player = transfer.player ? new Player(transfer.player) : undefined;

@@ -4,6 +4,7 @@ import { StadiumComponent } from "./stadium.component";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { StadiumService } from "./stadium.service";
 import { CommonModule } from "@angular/common";
+import { BrowserModule } from "@angular/platform-browser";
 
 const ROUTES: Routes = [
   { path: '', component: StadiumComponent }
@@ -16,6 +17,8 @@ const ROUTES: Routes = [
     ReactiveFormsModule,
     FormsModule,
     CommonModule,
+    CommonModule,
+    BrowserModule
   ],
   providers: [
     StadiumService

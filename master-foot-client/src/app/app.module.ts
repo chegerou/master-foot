@@ -11,6 +11,8 @@ import { StadiumModule } from './stadium/stadium.module';
 import { HttpClientModule } from '@angular/common/http';
 import { TeamModule } from './team/team.module';
 import { PlayerModule } from './player/player.module';
+import { TransferModule } from './transfer/transfer.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,12 @@ import { PlayerModule } from './player/player.module';
     RouterModule.forRoot(ROUTES),
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule,
 
     StadiumModule,
     TeamModule,
-    PlayerModule
+    PlayerModule,
+    TransferModule
 
   ],
   providers: [],
